@@ -2189,7 +2189,10 @@ def build_help_html(admin: bool, when_text: str) -> str:
   <div style="display:flex;align-items:center;justify-content:space-between;margin-top:32px;
        padding-top:20px;border-top:1px solid {BORDER};">
    <div style="font-size:14px;color:{FAINT};">命令 /cs2 或 cs2 均可触发 · {_esc(when_text)}</div>
-   <div style="font-size:14px;color:{MUTE};">HLTV · <span style="color:{ACCENT};font-weight:600;">hltv.org</span></div>
+   <div style="display:flex;align-items:center;gap:18px;font-size:14px;color:{MUTE};">
+    <div>开源 · <span style="color:{ACCENT};font-weight:600;">github.com/canxiaocai/cs2-event-bot</span></div>
+    <div>数据 · <span style="color:{ACCENT};font-weight:600;">hltv.org</span></div>
+   </div>
   </div>"""
     return _shell(body, "44px 48px 38px")
 
