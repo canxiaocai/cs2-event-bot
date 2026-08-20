@@ -60,16 +60,6 @@ python3 -m venv .venv
 
 日志里出现 `Bot <QQ号> connected` 即链路打通。在订阅群里发 `/cs2` 即可看到帮助卡。
 
-### 3.(可选)macOS 开机自启
-
-登录后自动拉起 Docker → NapCat → NoneBot2,崩溃自动重启:
-
-```bash
-scripts/install-autostart.sh
-```
-
-详见 [deploy/launchd/](deploy/launchd/) 与 [scripts/](scripts/)。其他平台用 systemd 等价物即可(插件本身不依赖 macOS)。
-
 ## 配置
 
 - 运行配置:`bot/.env`(见 [.env.example](bot/.env.example),含每一项的说明)。
