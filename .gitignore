@@ -14,6 +14,8 @@
 /bot/src/plugins/cs2_results/assets/fonts/local/
 
 # Internal working docs / design drafts (not published)
+/CLAUDE.md
+/AGENTS.md
 /PRODUCT.md
 /bot/src/plugins/cs2_results/design/
 
