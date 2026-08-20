@@ -26,22 +26,6 @@
 - **Valve 世界排名(VRS)** — 卡片上队名旁标注 `#N` 世界排名,战报卡附本场对排名的实际影响,数据每日快照 + 比赛页顺路更新,零额外请求。
 - **工程化细节** — 抓取限速 + Cloudflare 挑战自动重试;页面/图标多级缓存 + stale-while-revalidate;投递失败指数退避重试、群禁言静默顺延;渲染结果去重。
 
-## 架构
-
-```
-手机QQ ──扫码登录──▶ NapCat(Docker 容器,QQ ↔ OneBot v11 网关)
-                          │  反向 WebSocket(OneBot v11)
-                          ▼
-                   NoneBot2(bot/)──加载──▶ src/plugins/cs2_results
-                                                │
-                                     Playwright(Chromium)
-                                      ├─ 抓取并解析 hltv.org
-                                      └─ HTML → PNG 卡片渲染
-```
-
-- **NapCat**:官方 Docker 镜像,把 QQ 协议转成 OneBot v11 标准接口,纯网关、不含业务。
-- **NoneBot2**:Python 机器人框架,所有业务都在 `bot/src/plugins/cs2_results/` 插件里。
-
 ## 快速开始
 
 需要:Docker、Python 3.11+。以下命令均在仓库根执行。
