@@ -1,0 +1,8 @@
+nonebot2[fastapi,websockets]
+nonebot-adapter-onebot
+
+# cs2_results 插件:HTML→图片渲染 + 反爬抓取 + HTML 解析
+nonebot-plugin-htmlrender==0.7.1
+selectolax
+playwright>=1.60
+# 注:装完还需执行一次 `.venv/bin/playwright install chromium` 下载浏览器

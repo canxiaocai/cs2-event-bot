@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.qqbot.napcat</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>__QQBOT_ROOT__/scripts/start-napcat.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__QQBOT_ROOT__/napcat</string>
+
+    <!-- 用户登录后执行一次;Docker 慢起时脚本内会轮询等待 -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- 每 10 分钟兜底检查一次(容器被停掉时会再 compose up) -->
+    <key>StartInterval</key>
+    <integer>600</integer>
+
+    <key>StandardOutPath</key>
+    <string>__QQBOT_ROOT__/napcat/launchd.out</string>
+    <key>StandardErrorPath</key>
+    <string>__QQBOT_ROOT__/napcat/launchd.err</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>__HOME__</string>
+    </dict>
+</dict>
+</plist>

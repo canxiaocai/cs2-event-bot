@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.qqbot.nonebot</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>__QQBOT_ROOT__/scripts/start-nonebot.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__QQBOT_ROOT__/bot</string>
+
+    <!-- 登录即启动;崩溃后自动拉起,保证 /cs2 持续可用 -->
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <!-- 崩溃后至少间隔 10 秒再重启,避免 tight loop -->
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <key>StandardOutPath</key>
+    <string>__QQBOT_ROOT__/bot/launchd.out</string>
+    <key>StandardErrorPath</key>
+    <string>__QQBOT_ROOT__/bot/launchd.err</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>__HOME__</string>
+        <key>LANG</key>
+        <string>en_US.UTF-8</string>
+    </dict>
+
+    <!-- 进程类型:后台服务,不占用 App Nap 优先级问题基本可忽略 -->
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

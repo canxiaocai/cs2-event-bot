@@ -1,0 +1,17 @@
+services:
+  napcat:
+    image: mlikiowa/napcat-docker:latest
+    platform: linux/arm64          # Apple Silicon 原生
+    container_name: napcat
+    environment:
+      - NAPCAT_UID=501             # 匹配宿主用户的 UID(macOS 首个用户默认 501),避免卷权限问题
+      - NAPCAT_GID=20
+      - ACCOUNT=123456789         # 用已保存的登录态快速登录,重启免扫码
+    ports:
+      - "127.0.0.1:6099:6099"     # WebUI(仅本机可访问;token 已置空,免密登录)
+      - "3000:3000"               # OneBot HTTP(可在 WebUI 里启用)
+      - "3001:3001"               # OneBot 正向 WS(可在 WebUI 里启用)
+    volumes:
+      - ./config:/app/napcat/config   # NapCat 配置
+      - ./ntqq:/app/.config/QQ        # QQ 登录态(持久化,免每次重扫)
+    restart: unless-stopped

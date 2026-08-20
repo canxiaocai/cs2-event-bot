@@ -1,0 +1,50 @@
+# macOS / Python
+.DS_Store
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Secrets and local virtual environments
+**/.env
+**/.env.*
+!**/.env.example
+**/.venv/
+
+# Local font override (personal, non-redistributable fonts stay out of the repo)
+/bot/src/plugins/cs2_results/assets/fonts/local/
+
+# Internal working docs / design drafts (not published)
+/PRODUCT.md
+/bot/src/plugins/cs2_results/design/
+
+# Runtime state (not source code)
+/bot/data/
+/bot/*.log
+/bot/launchd.out
+/bot/launchd.err
+/bot/*.pid
+/napcat/config/
+/napcat/ntqq/
+/napcat/docker-compose.yml
+/napcat/qrcode.png
+/napcat/*.log
+/napcat/launchd.out
+/napcat/launchd.err
+/*.log
+
+# Deprecated SnowLuma runtime bundle (binary/vendor output, not maintained source)
+/app/
+/docker-compose.yml
+
+# Test, lint, type-check and Playwright output
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/
+**/.pyright/
+**/.coverage
+**/coverage.xml
+**/htmlcov/
+**/playwright-report/
+**/test-results/
+**/blob-report/
+**/trace.zip

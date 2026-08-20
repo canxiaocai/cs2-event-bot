@@ -1,0 +1,13 @@
+# Exact development toolchain. Runtime packages are constrained to the verified
+# Apple-Silicon environment captured in constraints-runtime.txt.
+-c constraints-runtime.txt
+-r requirements.txt
+
+iniconfig==2.1.0
+nodeenv==1.9.1
+packaging==25.0
+pluggy==1.6.0
+pyright==1.1.405
+pytest==8.4.2
+ruff==0.12.12
+
